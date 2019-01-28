@@ -19,5 +19,9 @@
         <module>DS/SparseArrays</module>
         <module>CrackingTheCodingInterview/ArrayLeftRotation</module>
         <module>CrackingTheCodingInterview/MakingAnagrams</module>
+        <module>StatsChallenge/MeanMedianMode</module>
+        <module>StatsChallenge/WeightedMean</module>
+        <module>StatsChallenge/WeightedMean</module>
+        <module>StatsChallenge/stddev</module>
     </modules>
 </project>
