@@ -1,38 +1,36 @@
 package com.raj.countingvalleys;
 
-import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
+import java.io.IOException;
 
 public class Solution {
 
     // Complete the countingValleys function below.
     static int countingValleys(int n, String s) {
+        final int u = 'U';
+        final int d = 'D';
 
+        int count_of_valleys = 0;
+        int level = 0;
+        int last_level = 0;
 
+        for(int i=0; i< n; i++) {
+            char ch = s.charAt(i);
+            switch (ch) {
+                case u: level++; break;
+                case d: level--;
+            }
+            if(last_level < 0 && level >= 0) {
+                count_of_valleys += 1;
+            }
+            last_level = level;
+        }
+        return count_of_valleys;
     }
 
-    private static final Scanner scanner = new Scanner(System.in);
-
     public static void main(String[] args) throws IOException {
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
-        int n = scanner.nextInt();
-        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+        String s = "DDUUDDUDUUUD";
 
-        String s = scanner.nextLine();
-
-        int result = countingValleys(n, s);
-
-        bufferedWriter.write(String.valueOf(result));
-        bufferedWriter.newLine();
-
-        bufferedWriter.close();
-
-        scanner.close();
+        int result = countingValleys(s.length(), s);
     }
 }
